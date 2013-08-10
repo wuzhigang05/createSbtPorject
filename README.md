@@ -1,8 +1,14 @@
-#Bash scripts to create barebone sbt project
+# Python  scripts to create barebone sbt project
 
 ###Usage
 
-  ./createScalaProject.sh <project name>
+type below for usage:
+
+  ./createScalaProject.py --help 
+
+Example Usage:
+
+  ./createScalaProject.py --title <project name> --organization <organization>
 
 ###LISCENSE
 
