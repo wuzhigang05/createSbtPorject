@@ -22,9 +22,9 @@ def writeSbtFile(args):
   project = os.path.join(cwd, args.title)
   sbtfile = os.path.join(project, 'build.sbt')
   with open(sbtfile, 'w') as OUT:
-    OUT.write("name           := %s\n\n" % args.title)
-    OUT.write("version        := 0.1.0\n\n")
-    OUT.write("organization   := %s\n\n" % args.organization)
+    OUT.write('''name           := "%s"\n\n''' % args.title)
+    OUT.write('''version        := "0.1.0"\n\n''')
+    OUT.write('''organization   := "%s"\n\n''' % args.organization)
   
 
 def create(args):
