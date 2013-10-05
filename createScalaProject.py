@@ -67,8 +67,8 @@ if __name__ == '__main__':
   parser.add_argument('-t', "--title", help="the title of your project", default ="test")
   parser.add_argument('-o', "--organization", help="the project organization, e.g. com.onescreen.tools",
       default="com.onescreen.tools")
-  parser.add_argument('-s', "--scalaVersion", help="the scalaVersion, default=[2.9.3]",
-      default="2.9.3")
+  parser.add_argument('-s', "--scalaVersion", help="the scalaVersion, default=[2.10.2]",
+      default="2.10.2")
 
   args = parser.parse_args()
   createDir(args) 
