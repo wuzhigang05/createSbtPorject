@@ -25,6 +25,8 @@ def writeSbtFile(args):
     OUT.write('''name           := "%s"\n\n''' % args.title)
     OUT.write('''version        := "0.1.0"\n\n''')
     OUT.write('''organization   := "%s"\n\n''' % args.organization)
+    OUT.write('''scalaVersion   := "%s"\n\n''' % args.scalaVersion)
+    OUT.write('''unmanagedBase  := baseDirecotry.value / "custom_lib"\n\n''')
   
 def writePluginsFile(args):
   cwd = os.getcwd()
@@ -65,5 +67,8 @@ if __name__ == '__main__':
   parser.add_argument('-t', "--title", help="the title of your project", default ="test")
   parser.add_argument('-o', "--organization", help="the project organization, e.g. com.onescreen.tools",
       default="com.onescreen.tools")
+  parser.add_argument('-s', "--scalaVersion", help="the scalaVersion, default=[2.9.3]",
+      default="2.9.3")
+
   args = parser.parse_args()
   createDir(args) 
