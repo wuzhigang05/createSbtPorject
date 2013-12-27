@@ -68,10 +68,10 @@ if __name__ == '__main__':
       description="This program will generate the barebone sbt project directories " + 
       "based on you specified options.")
   parser.add_argument('-n', "--name", help="the name of your project", default ="test")
-  parser.add_argument('-o', "--organization", help="the project organization, e.g. com.onescreen.tools",
-      default="com.onescreen.tools")
-  parser.add_argument('-s', "--scalaVersion", help="the scalaVersion, default=[2.10.2]",
-      default="2.10.2")
+  parser.add_argument('-o', "--organization", required=True, 
+      help="the project organization, e.g. com.onescreen.tools, bio.scala")
+  parser.add_argument('-s', "--scalaVersion", help="the scalaVersion, default=[2.10.3]",
+      default="2.10.3")
   parser.add_argument('-v', "--version", help="the scalaVersion, default=[0.10-SNAPSHOT]",
       default="0.10-SNAPSHOT")
   parser.add_argument("-p", "--path", 
