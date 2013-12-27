@@ -16,23 +16,23 @@
 
 Above step will create a directory structure like below:
 
-hello/
-|-- build
-|-- build.sbt
-|-- lib
-|-- project
-|   `-- plugins.sbt
-`-- src
-    |-- main
-    |   `-- scala
-    |       `-- com
-    |           `-- onescreen
-    |               `-- tools
-    `-- test
-        `-- scala
-            `-- com
-                `-- onescreen
-                    `-- tools
+  hello/
+  |-- build
+  |-- build.sbt
+  |-- lib
+  |-- project
+  |   `-- plugins.sbt
+  `-- src
+      |-- main
+      |   `-- scala
+      |       `-- com
+      |           `-- onescreen
+      |               `-- tools
+      `-- test
+          `-- scala
+              `-- com
+                  `-- onescreen
+                      `-- tools
 
 ###LISCENSE
 
