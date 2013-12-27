@@ -7,20 +7,20 @@ import shutil
 
 def createDir(args):
   cwd = os.getcwd()
-  if os.path.exists(args.title):
-    res = raw_input('%s direcotry exists. Type Y to replace, N to exit\n' % args.title)
+  if os.path.exists(args.name):
+    res = raw_input('%s direcotry exists. Type Y to replace, N to exit\n' % args.name)
     if res.lower() == 'y':
-      shutil.rmtree(args.title)
+      shutil.rmtree(args.name)
       create(args)
   else:
     create(args)
 
 def writeSbtFile(args):
   cwd = os.getcwd()
-  project = os.path.join(cwd, args.title)
+  project = os.path.join(cwd, args.name)
   sbtfile = os.path.join(project, 'build.sbt')
   with open(sbtfile, 'w') as OUT:
-    OUT.write('''name           := "%s"\n\n''' % args.title)
+    OUT.write('''name           := "%s"\n\n''' % args.name)
     OUT.write('''version        := "0.1.0"\n\n''')
     OUT.write('''organization   := "%s"\n\n''' % args.organization)
     OUT.write('''scalaVersion   := "%s"\n\n''' % args.scalaVersion)
@@ -28,7 +28,7 @@ def writeSbtFile(args):
   
 def writePluginsFile(args):
   cwd = os.getcwd()
-  project = os.path.join(cwd, args.title)
+  project = os.path.join(cwd, args.name)
   project = os.path.join(project, 'project')
   pluginsFile = os.path.join(project, 'plugins.sbt')
   with open(pluginsFile, 'w') as OUT:
@@ -41,7 +41,7 @@ def create(args):
     if not os.path.exists(args.path):
       os.mkdirs(args.path)
     cwd = args.path
-  project = os.path.join(cwd, args.title)
+  project = os.path.join(cwd, args.name)
   os.mkdir(project)
   
   orgString = ""
