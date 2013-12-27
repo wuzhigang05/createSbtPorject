@@ -1,6 +1,5 @@
 #!/usr/bin/env python2.7
 import sys
-import pdb
 import argparse
 import os
 import shutil
@@ -11,7 +10,6 @@ def createDir(args):
   if os.path.exists(args.title):
     res = raw_input('%s direcotry exists. Type Y to replace, N to exit\n' % args.title)
     if res.lower() == 'y':
-#      os.removedirs(args.title)
       shutil.rmtree(args.title)
       create(args)
   else:
@@ -36,8 +34,13 @@ def writePluginsFile(args):
   with open(pluginsFile, 'w') as OUT:
     OUT.write('''addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.2.0")\n\n''')
     OUT.write('''addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.9.1") \n\n''')
+
 def create(args):
   cwd = os.getcwd()
+  if args.path != ".":
+    if not os.path.exists(args.path):
+      os.mkdirs(args.path)
+    cwd = args.path
   project = os.path.join(cwd, args.title)
   os.mkdir(project)
   
@@ -64,11 +67,15 @@ if __name__ == '__main__':
   parser= argparse.ArgumentParser(
       description="This program will generate the barebone sbt project directories " + 
       "based on you specified options.")
-  parser.add_argument('-t', "--title", help="the title of your project", default ="test")
+  parser.add_argument('-n', "--name", help="the name of your project", default ="test")
   parser.add_argument('-o', "--organization", help="the project organization, e.g. com.onescreen.tools",
       default="com.onescreen.tools")
   parser.add_argument('-s', "--scalaVersion", help="the scalaVersion, default=[2.10.2]",
       default="2.10.2")
-
+  parser.add_argument('-v', "--version", help="the scalaVersion, default=[0.10-SNAPSHOT]",
+      default="0.10-SNAPSHOT")
+  parser.add_argument("-p", "--path", 
+      help="the path that you wanna current project resides on. By default, this is \".\"",
+      default = ".")
   args = parser.parse_args()
   createDir(args) 
